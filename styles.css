@@ -13,7 +13,7 @@ body {
 
 .table-container {
     width: 100%;
-    overflow: auto;
+    overflow-x: auto;
 }
 
 table {
