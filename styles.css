@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th,
+table td {
+    padding: 8px;
+    line-height: 1.42857143;
+}
+
+table th {
+    border-bottom: 2px solid #eee;
+}
+
+table td {
+    border-top: 1px solid #eee;
+}
+
+mark {
+    padding: 0.2em 0.4em;
+    background-color: #fcf8e3;
+}
+
+sup {
+    top: -0.5em;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+a:hover {
+    color: #0088cc;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background: #feeae4;
+    color: #c61717;
+    padding: 3px 5px;
+    border-radius: 0;
+}
+
+pre {
+    display: block;
+    padding: 8px;
+    margin: 0 0 8.5px;
+    line-height: 1.42857143;
+    /* word-break: break-all;
+    word-wrap: break-word; */
+    font-size: 13px;
+    color: #546172;
+    background: #ecf3f8;
+    width: 300px;
+    overflow: auto;
+}
+
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    /* white-space: pre-wrap; */
+    background-color: transparent;
+    border-radius: 0;
+}
+
+button {
+    background-color: var(--tg-theme-button-color, #2481cc);
+    color: var(--tg-theme-button-text-color, #ffffff);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 3px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
