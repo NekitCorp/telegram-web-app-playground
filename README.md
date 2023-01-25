@@ -2,6 +2,8 @@
 
 Interactive feature testing [Telegram Web Apps](https://core.telegram.org/bots/webapps).
 
+[🤖 Telegram bot for testing](https://t.me/tg_web_app_test_bot)
+
 ## Update fields table
 
 1. Visit https://core.telegram.org/bots/webapps#initializing-web-apps.
