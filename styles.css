@@ -11,7 +11,13 @@ body {
     background-color: var(--tg-theme-bg-color, #ffffff);
 }
 
+.table-container {
+    width: 100%;
+    overflow: auto;
+}
+
 table {
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -74,6 +80,7 @@ pre {
     color: #546172;
     background: #ecf3f8;
     width: 300px;
+    max-height: 400px;
     overflow: auto;
 }
 
@@ -98,6 +105,26 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+    position: relative;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
 }
 
 .function-container {

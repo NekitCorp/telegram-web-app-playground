@@ -1,10 +1,12 @@
 // @ts-check
 
-function main() {
-    // Because we copy the content of the table from
-    // https://core.telegram.org/bots/webapps#initializing-web-apps
-    // without manual edits in the HTML code, we need to replace
-    // all local links to telegram site.
+const webApp = /** @type {any} */ (window).Telegram.WebApp;
+
+// Because we copy the content of the table from
+// https://core.telegram.org/bots/webapps#initializing-web-apps
+// without manual edits in the HTML code, we need to replace
+// all local links to telegram site.
+function fixLinks() {
     document.querySelectorAll("a").forEach((a) => {
         const href = a.getAttribute("href");
 
@@ -14,9 +16,15 @@ function main() {
             a.href = `https://core.telegram.org${href}`;
         }
     });
+}
 
-    const webApp = /** @type {any} */ (window).Telegram.WebApp;
-    const table = /** @type {HTMLTableElement} */ (document.querySelector(".table"));
+function renderFieldsTable() {
+    const table = /** @type {HTMLTableElement} */ (document.querySelector("#fields-table > table"));
+
+    // Append new th
+    const th = document.createElement("th");
+    th.textContent = "Test";
+    table.querySelector("thead > tr")?.appendChild(th);
 
     table.querySelectorAll("tbody > tr").forEach((tr) => {
         const name = getFieldName(tr);
@@ -57,6 +65,40 @@ function main() {
     });
 }
 
+function renderEventsTable() {
+    const table = /** @type {HTMLTableElement} */ (document.querySelector("#events-table > table"));
+
+    // Append new th
+    const th = document.createElement("th");
+    th.textContent = "Logs";
+    table.querySelector("thead > tr")?.appendChild(th);
+
+    table.querySelectorAll("tbody > tr").forEach((tr) => {
+        const name = getEventName(tr);
+
+        if (!name) return;
+
+        // debug
+        console.log({ name });
+
+        const pre = createPreElement(`${name} events:\n`);
+
+        webApp.onEvent(name, (...rest) => {
+            const code = pre.querySelector("code");
+
+            console.log(name, rest);
+
+            if (code) {
+                code.textContent += `${JSON.stringify(rest)}\n`;
+            }
+        });
+
+        const td = document.createElement("td");
+        td.appendChild(pre);
+        tr.appendChild(td);
+    });
+}
+
 /**
  * @param {Element} tr
  * @returns {string | null | undefined}
@@ -70,6 +112,23 @@ function getFieldName(tr) {
 
     // exclude function arguments in name
     text = text?.split("(")[0];
+
+    // just trim
+    text = text?.trim();
+
+    return text;
+}
+
+/**
+ * @param {Element} tr
+ * @returns {string | null | undefined}
+ */
+function getEventName(tr) {
+    // take first td element
+    const firstTd = tr.firstElementChild;
+
+    // take first code element
+    let text = firstTd?.querySelector("code")?.textContent;
 
     // just trim
     text = text?.trim();
@@ -168,4 +227,10 @@ function isDefined(value) {
     return value !== null && value !== undefined;
 }
 
-main();
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+
+fixLinks();
+renderFieldsTable();
+renderEventsTable();
