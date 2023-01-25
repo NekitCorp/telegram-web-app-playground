@@ -22,7 +22,7 @@ function main() {
         const name = getFieldName(tr);
         const value = name && webApp[name];
 
-        if (!name || !value) return;
+        if (!name || !isDefined(value)) return;
 
         const td = document.createElement("td");
 
@@ -42,14 +42,14 @@ function main() {
 
                 Object.keys(value).forEach((key) => {
                     if (typeof value[key] === "function") {
-                        td.appendChild(createButtonElement(key, () => value[key]()));
+                        td.appendChild(createFunctionHandler(key, value[key]));
                     }
                 });
 
                 break;
             }
             case "function":
-                td.appendChild(createButtonElement(name, () => value()));
+                td.appendChild(createFunctionHandler(name, value));
                 break;
         }
 
@@ -107,6 +107,65 @@ function createButtonElement(content, onClick) {
     button.addEventListener("click", onClick);
     button.textContent = content;
     return button;
+}
+
+/**
+ * @param {string} name
+ * @param {Function} func
+ * @returns {HTMLDivElement}
+ */
+function createFunctionHandler(name, func) {
+    const inputs = [];
+
+    const container = document.createElement("div");
+    container.classList.add("function-container");
+
+    container.appendChild(createButtonElement(name, () => func(...inputs)));
+
+    const inputsContainer = document.createElement("div");
+    inputsContainer.classList.add("inputs-container");
+
+    getFunctionArgs(func).forEach((name, i) => {
+        const label = document.createElement("label");
+        label.appendChild(document.createTextNode(name));
+        const input = document.createElement("input");
+        input.addEventListener("change", (e) => (inputs[i] = /** @type {HTMLInputElement} */ (e.target).value));
+        label.appendChild(input);
+        inputsContainer.appendChild(label);
+
+        if (name === "callback") {
+            input.disabled = true;
+        }
+    });
+
+    container.appendChild(inputsContainer);
+
+    return container;
+}
+
+/**
+ * https://stackoverflow.com/a/31194949/8439123
+ * @param {Function} func
+ * @returns {string[]}
+ */
+function getFunctionArgs(func) {
+    return (func + "")
+        .replace(/[/][/].*$/gm, "") // strip single-line comments
+        .replace(/\s+/g, "") // strip white space
+        .replace(/[/][*][^/*]*[*][/]/g, "") // strip multi-line comments
+        .split("){", 1)[0]
+        .replace(/^[^(]*[(]/, "") // extract the parameters
+        .replace(/=[^,]+/g, "") // strip any ES6 defaults
+        .split(",")
+        .filter(Boolean); // split & filter [""]
+}
+
+/**
+ * @param {any} value
+ * @returns {boolean}
+ */
+function isDefined(value) {
+    return value !== null && value !== undefined;
 }
 
 main();
