@@ -4,8 +4,11 @@
 
 body {
     margin: 0;
+    padding: 8px;
     font-size: 14px;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+    color: var(--tg-theme-text-color, #000000);
+    background-color: var(--tg-theme-bg-color, #ffffff);
 }
 
 table {
