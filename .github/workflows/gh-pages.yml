@@ -7,6 +7,8 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        env:
+            REPOSITORY_NAME: ${{ github.event.repository.name }}
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js
