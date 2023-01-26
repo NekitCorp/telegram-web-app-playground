@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { updateWebAppStore } from "../store";
     import { getFunctionArgs } from "../utils";
 
     export let name: string;
@@ -11,10 +12,15 @@
             inputs[index] = e.target.value;
         };
     }
+
+    function handleClick() {
+        updateWebAppStore();
+        func(...inputs);
+    }
 </script>
 
 <div class="container">
-    <button on:click={() => func(...inputs)}>{name}</button>
+    <button on:click={handleClick}>{name}</button>
 
     <div class="input-container">
         {#each getFunctionArgs(func) as arg, i}

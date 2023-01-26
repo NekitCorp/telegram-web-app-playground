@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { updateWebAppStore } from "../store";
 
     export let name: string;
     let logs = "Events will be displayed here:\n";
@@ -10,6 +11,7 @@
         if (typeof onEvent === "function") {
             onEvent(name, (...rest) => {
                 logs += `${JSON.stringify(rest)}\n`;
+                updateWebAppStore();
             });
         }
     });

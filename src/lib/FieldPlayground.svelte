@@ -1,10 +1,11 @@
 <script lang="ts">
+    import { webAppStore } from "../store";
     import { isDefined } from "../utils";
     import FunctionPlayground from "./FunctionPlayground.svelte";
 
     export let name: string;
 
-    const value = window.Telegram.WebApp[name];
+    $: value = $webAppStore[name];
 </script>
 
 {#if name && isDefined(value)}
