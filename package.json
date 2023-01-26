@@ -1,0 +1,22 @@
+{
+    "name": "telegram-web-app-playground",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "check": "svelte-check --tsconfig ./tsconfig.json",
+        "update": "node ./scripts/update.js"
+    },
+    "devDependencies": {
+        "@sveltejs/vite-plugin-svelte": "^2.0.0",
+        "@tsconfig/svelte": "^3.0.0",
+        "node-html-parser": "^6.1.4",
+        "svelte": "^3.54.0",
+        "svelte-check": "^2.10.0",
+        "tslib": "^2.4.1",
+        "typescript": "^4.9.3",
+        "vite": "^4.0.0"
+    }
+}
