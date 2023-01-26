@@ -4,7 +4,7 @@ Interactive feature testing [Telegram Web Apps](https://core.telegram.org/bots/w
 
 [🤖 Telegram bot for testing](https://t.me/web_app_playground_bot)
 
-![](./docs/demo.gif)
+<img src="./docs/demo.gif" width="300" />
 
 ## Development
 
