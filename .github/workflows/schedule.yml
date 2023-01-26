@@ -1,0 +1,18 @@
+name: Schedule update data
+on:
+    schedule:
+        - cron: "0 0 * * 0"
+
+jobs:
+    update:
+        runs-on: ubuntu-latest
+        steps:
+            # https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+            - uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.PAT }}
+            - uses: actions/setup-node@v3
+            - run: yarn update
+            - uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: Update data.
