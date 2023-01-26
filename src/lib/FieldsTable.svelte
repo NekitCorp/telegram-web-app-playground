@@ -25,7 +25,6 @@
     <details>
         <summary>
             <span>{@html row[0]}</span>
-            <div class="chevron-icon" />
         </summary>
         <div class="content-wrapper">
             <table>

@@ -2,7 +2,7 @@
 
 Interactive feature testing [Telegram Web Apps](https://core.telegram.org/bots/webapps).
 
-[🤖 Telegram bot for testing](https://t.me/tg_web_app_test_bot)
+[🤖 Telegram bot for testing](https://t.me/web_app_playground_bot)
 
 ## Development
 

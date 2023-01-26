@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 14px;
+    line-height: 1.42857143;
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
     color: var(--tg-theme-text-color, #000000);
     background-color: var(--tg-theme-bg-color, #ffffff);
@@ -51,7 +52,7 @@ code {
 pre {
     display: block;
     padding: 8px;
-    margin: 0 0 8.5px;
+    margin: 0;
     line-height: 1.42857143;
     font-size: 13px;
     color: #546172;
@@ -128,28 +129,32 @@ details {
     border-bottom: 2px solid #eee;
 }
 
-.chevron-icon {
-    height: 48px;
-    width: 48px;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjUgMTEuMjk5OEw5Ljg5OTk1IDUuNTk5OEM5LjQ5OTk1IDUuMTk5OCA4Ljg5OTk1IDUuMTk5OCA4LjQ5OTk1IDUuNTk5OEM4LjA5OTk1IDUuOTk5OCA4LjA5OTk1IDYuNTk5OCA4LjQ5OTk1IDYuOTk5OEwxMy40IDExLjg5OThMOC40OTk5NSAxNi43OTk4QzguMjk5OTUgMTYuOTk5OCA4LjE5OTk1IDE3LjE5OTggOC4xOTk5NSAxNy40OTk4QzguMTk5OTUgMTguMDk5OCA4LjU5OTk1IDE4LjQ5OTggOS4xOTk5NSAxOC40OTk4QzkuNDk5OTUgMTguNDk5OCA5LjY5OTk1IDE4LjM5OTggOS44OTk5NSAxOC4xOTk4TDE1LjYgMTIuNDk5OEMxNS45IDEyLjI5OTggMTUuOSAxMS42OTk4IDE1LjUgMTEuMjk5OFoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=");
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 150ms ease-in;
-}
-
 /* Access the active state with the open attribute */
-details[open] .chevron-icon {
-    transform: rotate(90deg);
+details[open] > summary:after {
+    transform: rotate(45deg);
 }
 
 /* Get rid of the marker pseudo-element from all browser for good */
 details > summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: 0.5rem 2rem 0.5rem 1rem;
     cursor: pointer;
     list-style: none;
+    position: relative;
+}
+
+details > summary:after {
+    content: " ";
+    position: absolute;
+    right: 1rem;
+    display: inline-block;
+    border-bottom: 2px solid var(--tg-theme-text-color, #000000);
+    border-right: 2px solid var(--tg-theme-text-color, #000000);
+    height: 8px;
+    width: 8px;
+    transform: rotate(-45deg);
+    transition: transform 200ms ease;
 }
 
 details > summary::-webkit-details-marker {

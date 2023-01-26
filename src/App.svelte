@@ -9,3 +9,9 @@
 
 <h3>Events Available for Web Apps</h3>
 <EventsTable data={data.eventsData} />
+
+<style>
+    h3 {
+        text-align: center;
+    }
+</style>
