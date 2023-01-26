@@ -4,6 +4,8 @@ Interactive feature testing [Telegram Web Apps](https://core.telegram.org/bots/w
 
 [🤖 Telegram bot for testing](https://t.me/web_app_playground_bot)
 
+![](./docs/demo.gif)
+
 ## Development
 
 1. `yarn dev`
