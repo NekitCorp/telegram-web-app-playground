@@ -38,7 +38,7 @@ function findSiblingClosestTableElement(startElement) {
  * @returns {Promise<object[]>}
  */
 async function getFieldsData(root) {
-    const startLinkName = "initializing-web-apps";
+    const startLinkName = "initializing-mini-apps";
     const h3 = root.querySelector(`a[name="${startLinkName}"]`)?.closest("h3");
 
     if (h3?.rawTagName !== "h3") {
@@ -71,7 +71,7 @@ async function getFieldsData(root) {
  * @returns {Promise<object[]>}
  */
 async function getEventsData(root) {
-    const startLinkName = "events-available-for-web-apps";
+    const startLinkName = "events-available-for-mini-apps";
     const h4 = root.querySelector(`a[name="${startLinkName}"]`)?.closest("h4");
 
     if (h4?.rawTagName !== "h4") {
