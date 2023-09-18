@@ -5,17 +5,30 @@
     export let name: string;
     export let func: Function;
 
-    const inputs = [];
+    type ArgName = string;
+    type ArgValue = string;
 
-    function handleInput(index: number) {
+    const CALLBACK_ARG_NAME: ArgName = "callback";
+    const funcArgsNames: ArgName[] = getFunctionArgs(func);
+    const inputs: Record<ArgName, ArgValue> = funcArgsNames.reduce((acc, arg) => ({ ...acc, [arg]: "" }), {});
+
+    function handleInput(argName: ArgName) {
         return (e) => {
-            inputs[index] = e.target.value;
+            inputs[argName] = e.target.value;
         };
     }
 
     function handleClick() {
+        const funcArgs = Object.keys(inputs).map((argName: ArgName) =>
+            argName === CALLBACK_ARG_NAME
+                ? (...props: unknown[]) => {
+                      inputs[name] = JSON.stringify(props);
+                  }
+                : inputs[name]
+        );
+
         updateWebAppStore();
-        func(...inputs);
+        func(...funcArgs);
     }
 </script>
 
@@ -23,8 +36,16 @@
     <button on:click={handleClick}>{name}</button>
 
     <div class="input-container">
-        {#each getFunctionArgs(func) as arg, i}
-            <label>{arg}<input type="text" on:input={handleInput(i)} disabled={arg === "callback"} /></label>
+        {#each funcArgsNames as argName}
+            <label>
+                {argName}
+                <input
+                    type="text"
+                    on:input={handleInput(argName)}
+                    disabled={argName === CALLBACK_ARG_NAME}
+                    bind:value={inputs[argName]}
+                />
+            </label>
         {/each}
     </div>
 </div>
