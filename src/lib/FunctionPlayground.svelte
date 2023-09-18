@@ -22,9 +22,9 @@
         const funcArgs = Object.keys(inputs).map((argName: ArgName) =>
             argName === CALLBACK_ARG_NAME
                 ? (...props: unknown[]) => {
-                      inputs[name] = JSON.stringify(props);
+                      inputs[argName] = JSON.stringify(props);
                   }
-                : inputs[name]
+                : inputs[argName]
         );
 
         updateWebAppStore();
