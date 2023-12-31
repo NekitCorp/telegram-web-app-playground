@@ -71,12 +71,17 @@
       "2": "An object for controlling the main button, which is displayed at the bottom of the Mini App in the Telegram interface."
     },
     {
+      "0": "SettingsButton <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#settingsbutton\">SettingsButton</a>",
+      "2": "An object for controlling the Settings item in the context menu of the Mini App in the Telegram interface."
+    },
+    {
       "0": "HapticFeedback",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#hapticfeedback\">HapticFeedback</a>",
       "2": "An object for controlling haptic feedback."
     },
     {
-      "0": "CloudStorage <sup><mark>NEW</mark></sup>",
+      "0": "CloudStorage",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#cloudstorage\">CloudStorage</a>",
       "2": "An object for controlling cloud storage."
     },
@@ -133,7 +138,7 @@
     {
       "0": "openTelegramLink(url)",
       "1": "Function",
-      "2": "A method that opens a telegram link inside Telegram app. The Mini App <em>will</em> be closed."
+      "2": "A method that opens a telegram link inside the Telegram app. The Mini App will <em>not</em> be closed after this method is called.<br><br>Up to <mark>Bot API 7.0</mark> The Mini App <em>will</em> be closed after this method is called."
     },
     {
       "0": "openInvoice(url[, callback])",
@@ -171,12 +176,12 @@
       "2": "<mark>Bot API 6.4+</mark> A method that requests text from the clipboard. The Mini App will receive the <a href=\"https://core.telegram.org/bots/webapps#events-available-for-mini-apps\">event</a> <em>clipboardTextReceived</em>. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called and the text from the clipboard will be passed as the first argument.<br><br><em>Note: this method can be called only for Mini Apps launched from the attachment menu and only in response to a user interaction with the Mini App interface (e.g. a click inside the Mini App or on the main button).</em>"
     },
     {
-      "0": "requestWriteAccess([callback]) <sup><mark>NEW</mark></sup>",
+      "0": "requestWriteAccess([callback])",
       "1": "Function",
       "2": "<mark>Bot API 6.9+</mark> A method that shows a native popup requesting permission for the bot to send messages to the user. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called when the popup is closed and the first argument will be a boolean indicating whether the user granted this access."
     },
     {
-      "0": "requestContact([callback]) <sup><mark>NEW</mark></sup>",
+      "0": "requestContact([callback])",
       "1": "Function",
       "2": "<mark>Bot API 6.9+</mark> A method that shows a native popup prompting the user for their phone number. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called when the popup is closed and the first argument will be a boolean indicating whether the user shared its phone number."
     },
@@ -234,11 +239,11 @@
       "1": "<mark>Bot API 6.4+</mark> Occurrs when the <code>readTextFromClipboard</code> method is called.<br><em>eventHandler</em> receives an object with the single field <em>data</em> containing text data from the clipboard. If the clipboard contains non-text data, the field <em>data</em> will be an empty string. If the Mini App has no access to the clipboard, the field <em>data</em> will be <em>null</em>."
     },
     {
-      "0": "<code>writeAccessRequested</code> <sup><mark>NEW</mark></sup>",
+      "0": "<code>writeAccessRequested</code>",
       "1": "<mark>Bot API 6.9+</mark> Occurs when the write permission was requested.<br><em>eventHandler</em> receives an object with the single field <em>status</em> containing one of the statuses:<br>- <strong>allowed</strong> – user granted write permission to the bot,<br>- <strong>cancelled</strong> – user declined this request."
     },
     {
-      "0": "<code>contactRequested</code> <sup><mark>NEW</mark></sup>",
+      "0": "<code>contactRequested</code>",
       "1": "<mark>Bot API 6.9+</mark> Occurrs when the user&#39;s phone number was requested.<br><em>eventHandler</em> receives an object with the single field <em>status</em> containing one of the statuses:<br>- <strong>sent</strong> – user shared their phone number with the bot,<br>- <strong>cancelled</strong> – user declined this request."
     }
   ]
