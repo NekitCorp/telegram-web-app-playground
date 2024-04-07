@@ -71,7 +71,7 @@
       "2": "An object for controlling the main button, which is displayed at the bottom of the Mini App in the Telegram interface."
     },
     {
-      "0": "SettingsButton <sup><mark>NEW</mark></sup>",
+      "0": "SettingsButton",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#settingsbutton\">SettingsButton</a>",
       "2": "An object for controlling the Settings item in the context menu of the Mini App in the Telegram interface."
     },
@@ -84,6 +84,11 @@
       "0": "CloudStorage",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#cloudstorage\">CloudStorage</a>",
       "2": "An object for controlling cloud storage."
+    },
+    {
+      "0": "BiometricManager <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#biometricmanager\">BiometricManager</a>",
+      "2": "An object for controlling biometrics on the device."
     },
     {
       "0": "isVersionAtLeast(version)",
@@ -245,6 +250,18 @@
     {
       "0": "<code>contactRequested</code>",
       "1": "<mark>Bot API 6.9+</mark> Occurrs when the user&#39;s phone number was requested.<br><em>eventHandler</em> receives an object with the single field <em>status</em> containing one of the statuses:<br>- <strong>sent</strong> – user shared their phone number with the bot,<br>- <strong>cancelled</strong> – user declined this request."
+    },
+    {
+      "0": "<code>biometricManagerUpdated</code>",
+      "1": "<mark>Bot API 7.2+</mark> Occurs whenever BiometricManager object is changed.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>biometricAuthRequested</code>",
+      "1": "<mark>Bot API 7.2+</mark> Occurs whenever biometric authentication was requested.<br><em>eventHandler</em> receives an object with the field <em>isAuthenticated</em> containing a boolean indicating whether the user was authenticated successfully. If <em>isAuthenticated</em> is true, the field <em>biometricToken</em> will contain the biometric token stored in secure storage on the device."
+    },
+    {
+      "0": "<code>biometricTokenUpdated</code>",
+      "1": "<mark>Bot API 7.2+</mark> Occurs whenever the biometric token was updated.<br><em>eventHandler</em> receives an object with the single field <em>isUpdated</em>, containing a boolean indicating whether the token was updated."
     }
   ]
 }
