@@ -61,6 +61,11 @@
       "2": "<em>True</em>, if the confirmation dialog is enabled while the user is trying to close the Mini App. <em>False</em>, if the confirmation dialog is disabled."
     },
     {
+      "0": "isVerticalSwipesEnabled <sup><mark>NEW</mark></sup>",
+      "1": "Boolean",
+      "2": "<em>True</em>, if vertical swipes to close or minimize the Mini App are enabled. <em>False</em>, if vertical swipes to close or minimize the Mini App are disabled. In any case, the user will still be able to minimize and close the Mini App by swiping the Mini App&#39;s header."
+    },
+    {
       "0": "BackButton",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#backbutton\">BackButton</a>",
       "2": "An object for controlling the back button which can be displayed in the header of the Mini App in the Telegram interface."
@@ -86,7 +91,7 @@
       "2": "An object for controlling cloud storage."
     },
     {
-      "0": "BiometricManager <sup><mark>NEW</mark></sup>",
+      "0": "BiometricManager",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#biometricmanager\">BiometricManager</a>",
       "2": "An object for controlling biometrics on the device."
     },
@@ -114,6 +119,16 @@
       "0": "disableClosingConfirmation()",
       "1": "Function",
       "2": "<mark>Bot API 6.2+</mark> A method that disables the confirmation dialog while the user is trying to close the Mini App."
+    },
+    {
+      "0": "enableVerticalSwipes() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 7.7+</mark> A method that enables vertical swipes to close or minimize the Mini App. For user convenience, it is recommended to always enable swipes unless they conflict with the Mini App&#39;s own gestures."
+    },
+    {
+      "0": "disableVerticalSwipes() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 7.7+</mark> A method that disables vertical swipes to close or minimize the Mini App. This method is useful if your Mini App uses swipe gestures that may conflict with the gestures for minimizing and closing the app."
     },
     {
       "0": "onEvent(eventType, eventHandler)",
@@ -168,7 +183,7 @@
     {
       "0": "showScanQrPopup(params[, callback])",
       "1": "Function",
-      "2": "<mark>Bot API 6.4+</mark> A method that shows a native popup for scanning a QR code described by the <em>params</em> argument of the type <a href=\"https://core.telegram.org/bots/webapps#scanqrpopupparams\">ScanQrPopupParams</a>. The Mini App will receive the <a href=\"https://core.telegram.org/bots/webapps#events-available-for-mini-apps\">event</a> <em>qrTextReceived</em> every time the scanner catches a code with text data. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called and the text from the QR code will be passed as the first argument. Returning <em>true</em> inside this callback function causes the popup to be closed."
+      "2": "<mark>Bot API 6.4+</mark> A method that shows a native popup for scanning a QR code described by the <em>params</em> argument of the type <a href=\"https://core.telegram.org/bots/webapps#scanqrpopupparams\">ScanQrPopupParams</a>. The Mini App will receive the <a href=\"https://core.telegram.org/bots/webapps#events-available-for-mini-apps\">event</a> <em>qrTextReceived</em> every time the scanner catches a code with text data. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called and the text from the QR code will be passed as the first argument. Returning <em>true</em> inside this callback function causes the popup to be closed. Starting from <mark>Bot API 7.7</mark>, the Mini App will receive the <em>scanQrPopupClosed</em> event if the user closes the native popup for scanning a QR code."
     },
     {
       "0": "closeScanQrPopup()",
@@ -238,6 +253,10 @@
     {
       "0": "<code>qrTextReceived</code>",
       "1": "<mark>Bot API 6.4+</mark> Occurs when the QR code scanner catches a code with text data.<br><em>eventHandler</em> receives an object with the single field <em>data</em> containing text data from the QR code."
+    },
+    {
+      "0": "<code>scanQrPopupClosed</code>",
+      "1": "<mark>Bot API 7.7+</mark> Occurs when the QR code scanner popup is closed by the user.<br><em>eventHandler</em> receives no parameters."
     },
     {
       "0": "<code>clipboardTextReceived</code>",
