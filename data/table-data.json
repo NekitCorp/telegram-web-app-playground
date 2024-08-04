@@ -166,6 +166,11 @@
       "2": "<mark>Bot API 6.1+</mark> A method that opens an invoice using the link <em>url</em>. The Mini App will receive the <a href=\"https://core.telegram.org/bots/webapps#events-available-for-mini-apps\">event</a> <em>invoiceClosed</em> when the invoice is closed. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called and the invoice status will be passed as the first argument."
     },
     {
+      "0": "shareToStory(media_url[, params])",
+      "1": "Function",
+      "2": "<mark>Bot API 7.8+</mark> A method that opens the native story editor with the media specified in the <em>media_url</em> parameter as an HTTPS URL. An optional <em>params</em> argument of the type <a href=\"https://core.telegram.org/bots/webapps#storyshareparams\">StoryShareParams</a> describes additional sharing settings."
+    },
+    {
       "0": "showPopup(params[, callback])",
       "1": "Function",
       "2": "<mark>Bot API 6.2+</mark> A method that shows a native popup described by the <em>params</em> argument of the type <a href=\"https://core.telegram.org/bots/webapps#popupparams\">PopupParams</a>. The Mini App will receive the <a href=\"https://core.telegram.org/bots/webapps#events-available-for-mini-apps\">event</a> <em>popupClosed</em> when the popup is closed. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called and the field <em>id</em> of the pressed button will be passed as the first argument."
