@@ -56,6 +56,11 @@
       "2": "Current background color in the <code>#RRGGBB</code> format."
     },
     {
+      "0": "bottomBarColor",
+      "1": "String",
+      "2": "Current bottom bar color in the <code>#RRGGBB</code> format."
+    },
+    {
       "0": "isClosingConfirmationEnabled",
       "1": "Boolean",
       "2": "<em>True</em>, if the confirmation dialog is enabled while the user is trying to close the Mini App. <em>False</em>, if the confirmation dialog is disabled."
@@ -72,8 +77,13 @@
     },
     {
       "0": "MainButton",
-      "1": "<a href=\"https://core.telegram.org/bots/webapps#mainbutton\">MainButton</a>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#bottombutton\">BottomButton</a>",
       "2": "An object for controlling the main button, which is displayed at the bottom of the Mini App in the Telegram interface."
+    },
+    {
+      "0": "SecondaryButton",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#bottombutton\">BottomButton</a>",
+      "2": "An object for controlling the secondary button, which is displayed at the bottom of the Mini App in the Telegram interface."
     },
     {
       "0": "SettingsButton",
@@ -109,6 +119,11 @@
       "0": "setBackgroundColor(color)",
       "1": "Function",
       "2": "<mark>Bot API 6.1+</mark> A method that sets the app background color in the <code>#RRGGBB</code> format. You can also use keywords <em>bg_color</em> and <em>secondary_bg_color</em>."
+    },
+    {
+      "0": "setBottomBarColor(color)",
+      "1": "Function",
+      "2": "<mark>Bot API 7.10+</mark> A method that sets the app&#39;s bottom bar color in the <code>#RRGGBB</code> format. You can also use the keywords <em>bg_color</em>, <em>secondary_bg_color</em> and <em>bottom_bar_bg_color</em>."
     },
     {
       "0": "enableClosingConfirmation()",
@@ -237,7 +252,11 @@
     },
     {
       "0": "<code>mainButtonClicked</code>",
-      "1": "Occurs when the <a href=\"https://core.telegram.org/bots/webapps#mainbutton\">main button</a> is pressed.<br><em>eventHandler</em> receives no parameters."
+      "1": "Occurs when the <a href=\"https://core.telegram.org/bots/webapps#bottombutton\">main button</a> is pressed.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>secondaryButtonClicked</code>",
+      "1": "<mark>Bot API 7.10+</mark> Occurs when the <a href=\"https://core.telegram.org/bots/webapps#bottombutton\">secondary button</a> is pressed.<br><em>eventHandler</em> receives no parameters."
     },
     {
       "0": "<code>backButtonClicked</code>",
