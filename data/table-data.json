@@ -31,6 +31,11 @@
       "2": "An object containing the current theme settings used in the Telegram app."
     },
     {
+      "0": "isActive <sup><mark>NEW</mark></sup>",
+      "1": "Boolean",
+      "2": "<mark>Bot API 8.0+</mark> <em>True</em>, if the Mini App is currently active. <em>False</em>, if the Mini App is minimized."
+    },
+    {
       "0": "isExpanded",
       "1": "Boolean",
       "2": "<em>True</em>, if the Mini App is expanded to the maximum available height. False, if the Mini App occupies part of the screen and can be expanded to the full height using the <strong>expand()</strong> method."
@@ -71,6 +76,26 @@
       "2": "<em>True</em>, if vertical swipes to close or minimize the Mini App are enabled. <em>False</em>, if vertical swipes to close or minimize the Mini App are disabled. In any case, the user will still be able to minimize and close the Mini App by swiping the Mini App&#39;s header."
     },
     {
+      "0": "isFullscreen <sup><mark>NEW</mark></sup>",
+      "1": "Boolean",
+      "2": "<em>True</em>, if the Mini App is currently being displayed in fullscreen mode."
+    },
+    {
+      "0": "isOrientationLocked <sup><mark>NEW</mark></sup>",
+      "1": "Boolean",
+      "2": "<em>True</em>, if the Mini App’s orientation is currently locked. <em>False</em>, if orientation changes freely based on the device’s rotation."
+    },
+    {
+      "0": "safeAreaInset <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#safeareainset\">SafeAreaInset</a>",
+      "2": "An object representing the device&#39;s safe area insets, accounting for system UI elements like notches or navigation bars."
+    },
+    {
+      "0": "contentSafeAreaInset <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#contentsafeareainset\">ContentSafeAreaInset</a>",
+      "2": "An object representing the safe area for displaying content within the app, free from overlapping Telegram UI elements."
+    },
+    {
       "0": "BackButton",
       "1": "<a href=\"https://core.telegram.org/bots/webapps#backbutton\">BackButton</a>",
       "2": "An object for controlling the back button which can be displayed in the header of the Mini App in the Telegram interface."
@@ -106,6 +131,26 @@
       "2": "An object for controlling biometrics on the device."
     },
     {
+      "0": "Accelerometer <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#accelerometer\">Accelerometer</a>",
+      "2": "An object for accessing accelerometer data on the device."
+    },
+    {
+      "0": "DeviceOrientation <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#deviceorientation\">DeviceOrientation</a>",
+      "2": "An object for accessing device orientation data on the device."
+    },
+    {
+      "0": "Gyroscope <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#gyroscope\">Gyroscope</a>",
+      "2": "An object for accessing gyroscope data on the device."
+    },
+    {
+      "0": "LocationManager <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#locationmanager\">LocationManager</a>",
+      "2": "An object for controlling location on the device."
+    },
+    {
       "0": "isVersionAtLeast(version)",
       "1": "Function",
       "2": "Returns true if the user&#39;s app supports a version of the Bot API that is equal to or higher than the version passed as the parameter."
@@ -123,7 +168,7 @@
     {
       "0": "setBottomBarColor(color)",
       "1": "Function",
-      "2": "<mark>Bot API 7.10+</mark> A method that sets the app&#39;s bottom bar color in the <code>#RRGGBB</code> format. You can also use the keywords <em>bg_color</em>, <em>secondary_bg_color</em> and <em>bottom_bar_bg_color</em>."
+      "2": "<mark>Bot API 7.10+</mark> A method that sets the app&#39;s bottom bar color in the <code>#RRGGBB</code> format. You can also use the keywords <em>bg_color</em>, <em>secondary_bg_color</em>, and <em>bottom_bar_bg_color</em>. This color is also applied to the navigation bar on Android."
     },
     {
       "0": "enableClosingConfirmation()",
@@ -144,6 +189,36 @@
       "0": "disableVerticalSwipes()",
       "1": "Function",
       "2": "<mark>Bot API 7.7+</mark> A method that disables vertical swipes to close or minimize the Mini App. This method is useful if your Mini App uses swipe gestures that may conflict with the gestures for minimizing and closing the app."
+    },
+    {
+      "0": "requestFullscreen() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that requests opening the Mini App in fullscreen mode. Although the header is transparent in fullscreen mode, it is recommended that the Mini App sets the header color using the <em>setHeaderColor</em> method. This color helps determine a contrasting color for the status bar and other UI controls."
+    },
+    {
+      "0": "exitFullscreen() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that requests exiting fullscreen mode."
+    },
+    {
+      "0": "lockOrientation() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that locks the Mini App’s orientation to its current mode (either portrait or landscape). Once locked, the orientation remains fixed, regardless of device rotation. This is useful if a stable orientation is needed during specific interactions."
+    },
+    {
+      "0": "unlockOrientation() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that unlocks the Mini App’s orientation, allowing it to follow the device&#39;s rotation freely. Use this to restore automatic orientation adjustments based on the device orientation."
+    },
+    {
+      "0": "addToHomeScreen() <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that prompts the user to add the Mini App to the home screen. After successfully adding the icon, the <code>homeScreenAdded</code> event will be triggered if supported by the device. Note that if the device cannot determine the installation status, the event may not be received even if the icon has been added."
+    },
+    {
+      "0": "checkHomeScreenStatus([callback]) <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that checks if adding to the home screen is supported and if the Mini App has already been added. If an optional <em>callback</em> parameter is provided, the <em>callback</em> function will be called with a single argument <em>status</em>, which is a string indicating the home screen status. Possible values for <em>status</em> are:<br>- <strong>unsupported</strong> – the feature is not supported, and it is not possible to add the icon to the home screen,<br>- <strong>unknown</strong> – the feature is supported, and the icon can be added, but it is not possible to determine if the icon has already been added,<br>- <strong>added</strong> – the icon has already been added to the home screen,<br>- <strong>missed</strong> – the icon has not been added to the home screen."
     },
     {
       "0": "onEvent(eventType, eventHandler)",
@@ -184,6 +259,26 @@
       "0": "shareToStory(media_url[, params])",
       "1": "Function",
       "2": "<mark>Bot API 7.8+</mark> A method that opens the native story editor with the media specified in the <em>media_url</em> parameter as an HTTPS URL. An optional <em>params</em> argument of the type <a href=\"https://core.telegram.org/bots/webapps#storyshareparams\">StoryShareParams</a> describes additional sharing settings."
+    },
+    {
+      "0": "shareMessage(msg_id[, callback]) <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that opens a dialog allowing the user to share a message provided by the bot. If an optional <em>callback</em> parameter is provided, the <em>callback</em> function will be called with a boolean as the first argument, indicating whether the message was successfully sent. The message id passed to this method must belong to a <a href=\"https://core.telegram.org/bots/api#preparedinlinemessage\">PreparedInlineMessage</a> previously obtained via the Bot API method <a href=\"https://core.telegram.org/bots/api#savepreparedinlinemessage\">savePreparedInlineMessage</a>."
+    },
+    {
+      "0": "setEmojiStatus(custom_emoji_id[, params, callback])",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that opens a dialog allowing the user to set the specified custom emoji as their status. An optional <em>params</em> argument of type <a href=\"https://core.telegram.org/bots/webapps#emojistatusparams\">EmojiStatusParams</a> specifies additional settings, such as duration. If an optional <em>callback</em> parameter is provided, the <em>callback</em> function will be called with a boolean as the first argument, indicating whether the status was set.<br><br><em>Note: this method opens a native dialog and cannot be used to set the emoji status without manual user interaction. For fully programmatic changes, you should instead use the Bot API method <a href=\"bots/api#setuseremojistatus\">setUserEmojiStatus</a> after obtaining authorization to do so via the Mini App method requestEmojiStatusAccess.</em>"
+    },
+    {
+      "0": "requestEmojiStatusAccess([callback]) <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that shows a native popup requesting permission for the bot to manage user&#39;s emoji status. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called when the popup is closed and the first argument will be a boolean indicating whether the user granted this access."
+    },
+    {
+      "0": "downloadFile(params[, callback]) <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 8.0+</mark> A method that displays a native popup prompting the user to download a file specified by the <em>params</em> argument of type <a href=\"https://core.telegram.org/bots/webapps#downloadfileparams\">DownloadFileParams</a>. If an optional <em>callback</em> parameter is provided, the <em>callback</em> function will be called when the popup is closed, with the first argument as a boolean indicating whether the user accepted the download request."
     },
     {
       "0": "showPopup(params[, callback])",
@@ -243,12 +338,28 @@
   ],
   "eventsData": [
     {
+      "0": "<code>activated</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the Mini App becomes active (e.g., opened from minimized state or selected among tabs).<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>deactivated</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the Mini App becomes inactive (e.g., minimized or moved to an inactive tab).<br><em>eventHandler</em> receives no parameters."
+    },
+    {
       "0": "<code>themeChanged</code>",
       "1": "Occurs whenever theme settings are changed in the user&#39;s Telegram app (including switching to night mode).<br><em>eventHandler</em> receives no parameters, new theme settings and color scheme can be received via <em>this.themeParams</em> and <em>this.colorScheme</em> respectively."
     },
     {
       "0": "<code>viewportChanged</code>",
       "1": "Occurs when the visible section of the Mini App is changed.<br><em>eventHandler</em> receives an object with the single field <em>isStateStable</em>. If <em>isStateStable</em> is true, the resizing of the Mini App is finished. If it is false, the resizing is ongoing (the user is expanding or collapsing the Mini App or an animated object is playing). The current value of the visible section’s height is available in <em>this.viewportHeight</em>."
+    },
+    {
+      "0": "<code>safeAreaChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the device&#39;s safe area insets change (e.g., due to orientation change or screen adjustments).<br><em>eventHandler</em> receives no parameters. The current inset values can be accessed via <em>this.safeAreaInset</em>."
+    },
+    {
+      "0": "<code>contentSafeAreaChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the safe area for content changes (e.g., due to orientation change or screen adjustments).<br><em>eventHandler</em> receives no parameters. The current inset values can be accessed via <em>this.contentSafeAreaInset</em>."
     },
     {
       "0": "<code>mainButtonClicked</code>",
@@ -305,6 +416,102 @@
     {
       "0": "<code>biometricTokenUpdated</code>",
       "1": "<mark>Bot API 7.2+</mark> Occurs whenever the biometric token was updated.<br><em>eventHandler</em> receives an object with the single field <em>isUpdated</em>, containing a boolean indicating whether the token was updated."
+    },
+    {
+      "0": "<code>fullscreenChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs whenever the Mini App enters or exits fullscreen mode.<br><em>eventHandler</em> receives no parameters. The current fullscreen state can be checked via <em>this.isFullscreen</em>."
+    },
+    {
+      "0": "<code>fullscreenFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if a request to enter fullscreen mode fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – Fullscreen mode is not supported on this device or platform.<br><strong>ALREADY_FULLSCREEN</strong> – The Mini App is already in fullscreen mode."
+    },
+    {
+      "0": "<code>homeScreenAdded</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the Mini App is successfully added to the home screen.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>homeScreenChecked</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs after checking the home screen status.<br><em>eventHandler</em> receives an object with the field <em>status</em>, which is a string indicating the current home screen status. Possible values for <em>status</em> are:<br>- <strong>unsupported</strong> – the feature is not supported, and it is not possible to add the icon to the home screen,<br>- <strong>unknown</strong> – the feature is supported, and the icon can be added, but it is not possible to determine if the icon has already been added,<br>- <strong>added</strong> – the icon has already been added to the home screen,<br>- <strong>missed</strong> – the icon has not been added to the home screen."
+    },
+    {
+      "0": "<code>accelerometerStarted</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when accelerometer tracking has started successfully.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>accelerometerStopped</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when accelerometer tracking has stopped.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>accelerometerChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs with the specified frequency after calling the <code>start</code> method, sending the current accelerometer data.<br><em>eventHandler</em> receives no parameters, the current acceleration values can be received via <em>this.x</em>, <em>this.y</em> and <em>this.z</em> respectively."
+    },
+    {
+      "0": "<code>accelerometerFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if a request to start accelerometer tracking fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – Accelerometer tracking is not supported on this device or platform."
+    },
+    {
+      "0": "<code>deviceOrientationStarted</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when device orientation tracking has started successfully.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>deviceOrientationStopped</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when device orientation tracking has stopped.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>deviceOrientationChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs with the specified frequency after calling the <code>start</code> method, sending the current orientation data.<br><em>eventHandler</em> receives no parameters, the current device orientation values can be received via <em>this.alpha</em>, <em>this.beta</em> and <em>this.gamma</em> respectively."
+    },
+    {
+      "0": "<code>deviceOrientationFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if a request to start device orientation tracking fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – Device orientation tracking is not supported on this device or platform."
+    },
+    {
+      "0": "<code>gyroscopeStarted</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when gyroscope tracking has started successfully.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>gyroscopeStopped</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when gyroscope tracking has stopped.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>gyroscopeChanged</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs with the specified frequency after calling the <code>start</code> method, sending the current gyroscope data.<br><em>eventHandler</em> receives no parameters, the current rotation rates can be received via <em>this.x</em>, <em>this.y</em> and <em>this.z</em> respectively."
+    },
+    {
+      "0": "<code>gyroscopeFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if a request to start gyroscope tracking fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – Gyroscope tracking is not supported on this device or platform."
+    },
+    {
+      "0": "<code>locationManagerUpdated</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs whenever LocationManager object is changed.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>locationRequested</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when location data is requested.<br><em>eventHandler</em> receives an object with the single field <em>locationData</em> of type <a href=\"https://core.telegram.org/bots/webapps#locationdata\">LocationData</a>, containing the current location information."
+    },
+    {
+      "0": "<code>shareMessageSent</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the message is successfully shared by the user.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>shareMessageFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if sharing the message fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – The feature is not supported by the client.<br><strong>MESSAGE_EXPIRED</strong> – The message could not be retrieved because it has expired.<br><strong>MESSAGE_SEND_FAILED</strong> – An error occurred while attempting to send the message.<br><strong>USER_DECLINED</strong> – The user closed the dialog without sharing the message.<br><strong>UNKNOWN_ERROR</strong> – An unknown error occurred."
+    },
+    {
+      "0": "<code>emojiStatusSet</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the emoji status is successfully set.<br><em>eventHandler</em> receives no parameters."
+    },
+    {
+      "0": "<code>emojiStatusFailed</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs if setting the emoji status fails.<br><em>eventHandler</em> receives an object with the single field <em>error</em>, describing the reason for the failure. Possible values for <em>error</em> are:<br><strong>UNSUPPORTED</strong> – The feature is not supported by the client.<br><strong>SUGGESTED_EMOJI_INVALID</strong> – One or more emoji identifiers are invalid.<br><strong>DURATION_INVALID</strong> – The specified duration is invalid.<br><strong>USER_DECLINED</strong> – The user closed the dialog without setting a status.<br><strong>SERVER_ERROR</strong> – A server error occurred when attempting to set the status.<br><strong>UNKNOWN_ERROR</strong> – An unknown error occurred."
+    },
+    {
+      "0": "<code>emojiStatusAccessRequested</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the write permission was requested.<br><em>eventHandler</em> receives an object with the single field <em>status</em> containing one of the statuses:<br>- <strong>allowed</strong> – user granted emoji status permission to the bot,<br>- <strong>cancelled</strong> – user declined this request."
+    },
+    {
+      "0": "<code>fileDownloadRequested</code> <sup><mark>NEW</mark></sup>",
+      "1": "<mark>Bot API 8.0+</mark> Occurs when the user responds to the file download request.<br><em>eventHandler</em> receives an object with the single field <em>status</em> containing one of the statuses:<br>- <strong>downloading</strong> – the file download has started,<br>- <strong>cancelled</strong> – user declined this request."
     }
   ]
 }
