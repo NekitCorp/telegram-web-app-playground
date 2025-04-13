@@ -151,6 +151,16 @@
       "2": "An object for controlling location on the device."
     },
     {
+      "0": "DeviceStorage <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#devicestorage\">DeviceStorage</a>",
+      "2": "An object for storing and retrieving data from the device&#39;s local storage."
+    },
+    {
+      "0": "SecureStorage <sup><mark>NEW</mark></sup>",
+      "1": "<a href=\"https://core.telegram.org/bots/webapps#securestorage\">SecureStorage</a>",
+      "2": "An object for storing and retrieving data from the device&#39;s secure storage."
+    },
+    {
       "0": "isVersionAtLeast(version)",
       "1": "Function",
       "2": "Returns true if the user&#39;s app supports a version of the Bot API that is equal to or higher than the version passed as the parameter."
