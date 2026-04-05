@@ -336,6 +336,11 @@
       "2": "<mark>Bot API 6.9+</mark> A method that shows a native popup prompting the user for their phone number. If an optional <em>callback</em> parameter was passed, the <em>callback</em> function will be called when the popup is closed and the first argument will be a boolean indicating whether the user shared its phone number."
     },
     {
+      "0": "requestChat(req_id[, callback]) <sup><mark>NEW</mark></sup>",
+      "1": "Function",
+      "2": "<mark>Bot API 9.6+</mark> A method that opens a dialog allowing the user to select an existing chat or create a new one. If an optional <em>callback</em> parameter is provided, the <em>callback</em> function will be called with a boolean as the first argument, indicating whether the message was successfully sent. The request id passed to this method must belong to a <a href=\"https://core.telegram.org/bots/api#preparedkeyboardbutton\">PreparedKeyboardButton</a> previously obtained via the Bot API method <a href=\"https://core.telegram.org/bots/api#savepreparedkeyboardbutton\">savePreparedKeyboardButton</a>."
+    },
+    {
       "0": "ready()",
       "1": "Function",
       "2": "A method that informs the Telegram app that the Mini App is ready to be displayed.<br>It is recommended to call this method as early as possible, as soon as all essential interface elements are loaded. Once this method is called, the loading placeholder is hidden and the Mini App is shown.<br>If the method is not called, the placeholder will be hidden only when the page is fully loaded."
